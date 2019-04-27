@@ -1359,7 +1359,7 @@ MonoBehaviour:
   _vignettePulseStrength: 0.01
   _vignettePulseSpeed: 3
   _chromaticAberationBaseIntensity: 0.2
-  _chromaticAberationPulseStrength: 0.02
+  _chromaticAberationPulseStrength: 0.03
   _chromaticAberationPulseSpeed: 10
   _colorGradingColor: {r: 0.827451, g: 0.84313726, b: 1, a: 1}
   _lensDistortionPulseStrength: 5
@@ -1510,16 +1510,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3717736929877237908, guid: 5020caabfa76128418f5f3973154569d,
-        type: 3}
-      propertyPath: m_FlipX
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3717736929877237908, guid: 5020caabfa76128418f5f3973154569d,
-        type: 3}
-      propertyPath: m_FlipY
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5020caabfa76128418f5f3973154569d, type: 3}
 --- !u!1001 &7737917935683451974
@@ -1591,34 +1581,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7737917936071789086, guid: 59cb0206edb8ff541b3032aa107d18f7,
         type: 3}
-      propertyPath: OnDeathUnityEvent.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7737917936071789086, guid: 59cb0206edb8ff541b3032aa107d18f7,
-        type: 3}
-      propertyPath: OnDeathUnityEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 7737917936071789086, guid: 59cb0206edb8ff541b3032aa107d18f7,
-        type: 3}
-      propertyPath: OnDeathUnityEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 7737917936071789086, guid: 59cb0206edb8ff541b3032aa107d18f7,
-        type: 3}
       propertyPath: OnDeathUnityEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1375705349}
-    - target: {fileID: 7737917936071789086, guid: 59cb0206edb8ff541b3032aa107d18f7,
-        type: 3}
-      propertyPath: OnDeathUnityEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: set_enabled
-      objectReference: {fileID: 0}
-    - target: {fileID: 7737917936071789086, guid: 59cb0206edb8ff541b3032aa107d18f7,
-        type: 3}
-      propertyPath: OnDeathUnityEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 59cb0206edb8ff541b3032aa107d18f7, type: 3}
 --- !u!1001 &9116272700103617747

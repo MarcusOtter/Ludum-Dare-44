@@ -18,7 +18,7 @@ public class Scythe : MonoBehaviour
         _attackAnimationHash = Animator.StringToHash(_attackAnimationName);
     }
 
-    private void Start()
+    private void OnEnable()
     {
         InputManager.Instance.OnActionButtonDown += HandleActionButtonDown;
     }

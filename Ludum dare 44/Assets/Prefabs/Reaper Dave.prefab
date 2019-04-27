@@ -328,7 +328,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 747f703730d86ef4a8102b89b40976c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _bodySpriteRenderer: {fileID: 3717736930648626491}
+  _bodySpriteRenderer: {fileID: 3717736929877237908}
+  _horizontalVelocityName: VelocityX
 --- !u!50 &3717736930595731646
 Rigidbody2D:
   serializedVersion: 4
@@ -386,7 +387,7 @@ Animator:
   m_GameObject: {fileID: 3717736930595731643}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: fc3b7e4b5684b664ab2b51f31de50e6f, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

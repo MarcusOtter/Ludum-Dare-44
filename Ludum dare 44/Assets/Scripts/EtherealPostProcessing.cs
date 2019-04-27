@@ -18,7 +18,7 @@ public class EtherealPostProcessing : MonoBehaviour
     [SerializeField] private Color _colorGradingColor;
 
     [Header("Lens distortion")]
-    [SerializeField] [Range(1, 100f)] private float _lensDistortionPulseStrength = 1f;
+    [SerializeField] [Range(0, 25f)] private float _lensDistortionPulseStrength = 1f;
     [SerializeField] [Range(0f, 20f)] private float _lensDistortionPulseSpeed = 20f;
 
     private PostProcessVolume _postProcessVolume;
