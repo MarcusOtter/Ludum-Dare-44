@@ -9,7 +9,7 @@ public class Victim : MonoBehaviour
     [SerializeField] internal UnityEvent OnDeathUnityEvent;
 
     [Header("Settings")]
-    [SerializeField] private float _deathAnimationDuration = 2f;
+    [SerializeField] private float _timeUntilSoulReleased = 1.5f;
 
     private Rigidbody2D _rigidbody;
     private VictimGraphics _victimGraphics;
