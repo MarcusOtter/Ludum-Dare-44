@@ -25,10 +25,10 @@ public class VictimGraphics : MonoBehaviour
 
     private void OnDeathBehaviour(object sender, System.EventArgs e)
     {
-        TurnIntoSoul();
+        TransformToSoul();
     }
 
-    private void TurnIntoSoul()
+    private void TransformToSoul()
     {
         _animator.SetTrigger(_soulTransformationHash);
     }
