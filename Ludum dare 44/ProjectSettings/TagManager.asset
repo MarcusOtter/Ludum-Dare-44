@@ -41,3 +41,12 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Background
+    uniqueID: 245340409
+    locked: 0
+  - name: Apartment furniture
+    uniqueID: 2334630965
+    locked: 0
+  - name: Characters
+    uniqueID: 3206076963
+    locked: 0
