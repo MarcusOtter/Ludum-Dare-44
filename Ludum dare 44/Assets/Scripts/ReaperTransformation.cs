@@ -3,6 +3,12 @@
 public class ReaperTransformation : MonoBehaviour
 {
     internal ReaperForm CurrentForm { get; private set; }
-    // bool transforming to use in reaperMovement
+    internal bool IsTransforming { get; private set; }
 
+    private void TransformToForm(ReaperForm newReaperForm)
+    {
+        if (CurrentForm == newReaperForm) { return; }
+
+
+    }
 }

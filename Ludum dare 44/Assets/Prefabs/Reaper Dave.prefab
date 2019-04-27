@@ -263,8 +263,10 @@ GameObject:
   - component: {fileID: 3717736930595731640}
   - component: {fileID: 3717736930595731647}
   - component: {fileID: 3717736930595731641}
+  - component: {fileID: 5729355780888557570}
   - component: {fileID: 3717736930595731646}
   - component: {fileID: 3717736930595731644}
+  - component: {fileID: 7105306789246631208}
   m_Layer: 0
   m_Name: Reaper Dave
   m_TagString: Player
@@ -314,6 +316,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _normalMovementSpeed: 5
   _spectralMovementSpeed: 10
+--- !u!114 &5729355780888557570
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3717736930595731643}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 747f703730d86ef4a8102b89b40976c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _bodySpriteRenderer: {fileID: 3717736930648626491}
 --- !u!50 &3717736930595731646
 Rigidbody2D:
   serializedVersion: 4
@@ -361,6 +376,25 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.5, y: 4}
   m_EdgeRadius: 0
+--- !u!95 &7105306789246631208
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3717736930595731643}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &3717736930648626469
 GameObject:
   m_ObjectHideFlags: 0
