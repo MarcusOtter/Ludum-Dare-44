@@ -1,10 +1,13 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
 [RequireComponent(typeof(Animator), typeof(Collider2D))]
 public class SoulEater : MonoBehaviour
 {
     [Header("Settings")]
     [SerializeField] private float _biteCooldown;
+    //[SerializeField] private float _biteTimeScale = 0.2f;
+    //[SerializeField] private float _slowMotionDuration = 10f;
 
     [Header("Animation parameters")]
     [SerializeField] private string _soulInRangeName;
@@ -29,16 +32,29 @@ public class SoulEater : MonoBehaviour
     private void OnEnable()
     {
         InputManager.Instance.OnActionButtonDown += TryToEatSoul;
+
+        Victim.OnConsumed += (object sender, System.EventArgs args) =>
+        {
+            _animator.SetBool(_soulInRangeHash, false);
+            this.enabled = false;
+        };
     }
 
     private void TryToEatSoul(object sender, System.EventArgs args)
     {
-        if (_soulInRange == null) { return; }
         if (_lastBiteTime + _biteCooldown > Time.time) { return; }
-
+        //StartCoroutine(SlowMotion());
         _lastBiteTime = Time.time;
         _animator.SetTrigger(_eatSoulHash);
+        _soulInRange?.ConsumeSoul();
     }
+
+    //private IEnumerator SlowMotion()
+    //{
+    //    Time.timeScale = _biteTimeScale;
+    //    yield return new WaitForSeconds(_slowMotionDuration);
+    //    Time.timeScale = 1f;
+    //}
 
     private void OnTriggerEnter2D(Collider2D collider)
     {
@@ -58,5 +74,10 @@ public class SoulEater : MonoBehaviour
     private void OnDisable()
     {
         InputManager.Instance.OnActionButtonDown -= TryToEatSoul;
+
+        Victim.OnConsumed -= (object sender, System.EventArgs args) =>
+        {
+            this.enabled = false;
+        };
     }
 }

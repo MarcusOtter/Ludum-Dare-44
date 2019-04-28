@@ -7,8 +7,12 @@ using Random = UnityEngine.Random;
 [RequireComponent(typeof(Rigidbody2D), typeof(Collider2D))]
 public class Victim : MonoBehaviour
 {
+    // speed that goes up for every successful death and down for every failed one
+    // store in playerprefs
+
     internal static event EventHandler OnDeath;
     internal static event EventHandler OnSoulReleased;
+    internal static event EventHandler OnConsumed;
     [SerializeField] internal UnityEvent OnDeathUnityEvent;
 
     [Header("Settings")]
@@ -43,7 +47,13 @@ public class Victim : MonoBehaviour
         _rigidbody.velocity = transform.up * _soulMovementSpeed;
     }
 
-    // internal void getconsumed, call event
+    internal void ConsumeSoul()
+    {
+        OnConsumed?.Invoke(this, EventArgs.Empty);
+        print("Soul consumed!");
+        _rigidbody.velocity = Vector2.zero;
+        this.enabled = false;
+    }
 
     private void OnTriggerEnter2D(Collider2D collider)
     {

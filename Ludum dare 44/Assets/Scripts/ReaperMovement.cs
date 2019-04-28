@@ -16,6 +16,15 @@ public class ReaperMovement : MonoBehaviour
         _reaperTransformation = GetComponent<ReaperTransformation>();
     }
 
+    private void OnEnable()
+    {
+        Victim.OnConsumed += (object sender, System.EventArgs args) =>
+        {
+            _rigidbody.velocity = Vector2.zero;
+            this.enabled = false;
+        };
+    }
+
     private void Start()
     {
         _inputManager = InputManager.Instance;
@@ -23,7 +32,11 @@ public class ReaperMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (_reaperTransformation.IsTransforming) { return; }
+        if (_reaperTransformation.IsTransforming)
+        {
+            _rigidbody.velocity = Vector2.zero;
+            return;
+        }
 
         switch (_reaperTransformation.CurrentForm)
         {
@@ -37,5 +50,10 @@ public class ReaperMovement : MonoBehaviour
                 transform.right = lookDirection;
                 break;
         }
+    }
+
+    private void OnDisable()
+    {
+        Victim.OnConsumed -= (object sender, System.EventArgs args) => this.enabled = false;
     }
 }

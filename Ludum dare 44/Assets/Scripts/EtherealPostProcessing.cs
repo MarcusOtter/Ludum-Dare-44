@@ -1,8 +1,12 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 using UnityEngine.Rendering.PostProcessing;
 
 public class EtherealPostProcessing : MonoBehaviour
 {
+    [Header("Fade speed")]
+    [SerializeField] [Range(0f, 0.1f)] private float _fadeSpeed = 0.02f;
+
     [Header("Vignette")]
     [SerializeField] private Color _vignetteColor;
     [SerializeField] [Range(0.3f, 1f)] private float _vignetteBaseIntensity = 0.55f;
@@ -49,15 +53,28 @@ public class EtherealPostProcessing : MonoBehaviour
         // Lens distortion
         _lensDistortion = ScriptableObject.CreateInstance<LensDistortion>();
         _lensDistortion.enabled.Override(true);
+    }
 
-        // put this in some kind of coroutine probably
+    private void OnEnable()
+    {
+        Victim.OnDeath += (object sender, System.EventArgs args) => StartCoroutine(EnableAndFadeProcessing());
+    }
+
+    private IEnumerator EnableAndFadeProcessing()
+    {
         _postProcessVolume = PostProcessManager.instance.QuickVolume(gameObject.layer, 100f, _vignette, _chromaticAberration, _colorGrading, _lensDistortion);
+        _postProcessVolume.weight = 0;
+
+        while (_postProcessVolume.weight < 1f)
+        {
+            _postProcessVolume.weight += _fadeSpeed;
+            yield return new WaitForSeconds(0.02f);
+        }
     }
 
     private void Update()
     {
-        // Replace Time.time with Time.realtimeSinceStartup if Time.timeScale is modified later
-
+        // Replace Time.time with Time.realtimeSinceStartup if Time.timeScale is modified later?
         _vignette.intensity.value = _vignetteBaseIntensity + Mathf.Sin(Time.time * _vignettePulseSpeed) * _vignettePulseStrength;
         _chromaticAberration.intensity.Override(_chromaticAberationBaseIntensity + Mathf.Sin(Time.time * _chromaticAberationPulseSpeed) * _chromaticAberationPulseStrength);
         _lensDistortion.intensity.Override(Mathf.Sin(Time.time * _lensDistortionPulseSpeed) * _lensDistortionPulseStrength);
@@ -65,11 +82,11 @@ public class EtherealPostProcessing : MonoBehaviour
         // Does not need to be in Update, only for testing
         _colorGrading.colorFilter.Override(_colorGradingColor);
         _vignette.color.Override(_vignetteColor);
+    }
 
-        //if (Input.GetKey(KeyCode.Space))
-        //{
-        //    _postProcessVolume.weight -= Time.deltaTime;
-        //}
+    private void OnDisable()
+    {
+        Victim.OnDeath -= (object sender, System.EventArgs args) => StartCoroutine(EnableAndFadeProcessing());
     }
 
     private void OnDestroy()
