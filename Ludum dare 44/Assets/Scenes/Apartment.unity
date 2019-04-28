@@ -1723,6 +1723,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: Reaper Dave
       objectReference: {fileID: 0}
+    - target: {fileID: 3904025870218189584, guid: 5020caabfa76128418f5f3973154569d,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -7999262671970624504, guid: 148718d3389034a6e8330aae24be6e0b,
+        type: 3}
+    - target: {fileID: 3904025870218189584, guid: 5020caabfa76128418f5f3973154569d,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3717736930595731640, guid: 5020caabfa76128418f5f3973154569d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1834,12 +1845,6 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3904025870218189584, guid: 5020caabfa76128418f5f3973154569d,
-        type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: -7999262671970624504, guid: 148718d3389034a6e8330aae24be6e0b,
-        type: 3}
     - target: {fileID: 7327712315425155465, guid: 5020caabfa76128418f5f3973154569d,
         type: 3}
       propertyPath: m_Controller
