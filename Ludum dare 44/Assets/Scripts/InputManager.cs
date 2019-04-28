@@ -7,6 +7,7 @@ public class InputManager : MonoBehaviour
 
     internal event EventHandler OnActionButtonDown;
 
+    internal Vector3 MouseWorldPosition { get; private set; }
     internal float HorizontalAxisValue { get; private set; }
     internal float VerticalAxisValue { get; private set; }
 
@@ -15,13 +16,19 @@ public class InputManager : MonoBehaviour
     [SerializeField] private string _horizontalAxisName = "Horizontal";
     [SerializeField] private string _verticalAxisName = "Vertical";
 
+    private Camera _mainCamera;
+
     private void Awake()
     {
         SingletonSetup();
+        _mainCamera = Camera.main;
     }
 
     private void Update()
     {
+        // _mainCamera.ScreenToWorldPoint did not work for some reason
+        MouseWorldPosition = _mainCamera.ScreenPointToRay(Input.mousePosition).direction * 10;
+
         HorizontalAxisValue = Input.GetAxisRaw(_horizontalAxisName);
         VerticalAxisValue = Input.GetAxisRaw(_verticalAxisName);
 

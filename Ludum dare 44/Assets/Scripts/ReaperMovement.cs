@@ -23,6 +23,8 @@ public class ReaperMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (_reaperTransformation.IsTransforming) { return; }
+
         switch (_reaperTransformation.CurrentForm)
         {
             case ReaperForm.Physical:
@@ -31,6 +33,8 @@ public class ReaperMovement : MonoBehaviour
 
             case ReaperForm.Spectral:
                 _rigidbody.velocity = new Vector2(_inputManager.HorizontalAxisValue, _inputManager.VerticalAxisValue)* _spectralMovementSpeed;
+                Vector2 lookDirection = (_inputManager.MouseWorldPosition - transform.position).normalized;
+                transform.right = lookDirection;
                 break;
         }
     }
