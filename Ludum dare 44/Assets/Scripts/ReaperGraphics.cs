@@ -7,6 +7,7 @@ public class ReaperGraphics : MonoBehaviour
 
     [Header("References")]
     [SerializeField] private SpriteRenderer _bodySpriteRenderer;
+    [SerializeField] private SpriteRenderer _headSpriteRenderer;
 
     [Header("Animator parameters")]
     [SerializeField] private string _horizontalVelocityName = "AbsVelocityX";
@@ -41,8 +42,8 @@ public class ReaperGraphics : MonoBehaviour
 
         if (_reaperTransformation.CurrentForm == ReaperForm.Spectral)
         {
-            print(transform.eulerAngles.z);
             _bodySpriteRenderer.flipY = (transform.eulerAngles.z > 90 && transform.eulerAngles.z < 270);
+            _headSpriteRenderer.flipY = (transform.eulerAngles.z > 90 && transform.eulerAngles.z < 270);
             return;
         }
 

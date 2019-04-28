@@ -42,6 +42,8 @@ public class Victim : MonoBehaviour
         _rigidbody.velocity = transform.up * _soulMovementSpeed;
     }
 
+    // internal void getconsumed, call event
+
     private void OnTriggerEnter2D(Collider2D collider)
     {
         if (collider.CompareTag("SoulBoundary"))
