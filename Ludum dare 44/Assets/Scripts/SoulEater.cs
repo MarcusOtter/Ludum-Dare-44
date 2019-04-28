@@ -65,7 +65,7 @@ public class SoulEater : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collider)
     {
-        if (_soulInRange == null) { return; }
+        if (_soulInRange is null) { return; }
         if (!collider.CompareTag("Soul")) { return; }
         _soulInRange = null;
         _animator.SetBool(_soulInRangeHash, false);

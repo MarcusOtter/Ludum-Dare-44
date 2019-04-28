@@ -69,7 +69,7 @@ public class Victim : MonoBehaviour
         }
 
         var scythe = collider.GetComponent<Scythe>();
-        if (scythe == null) { return; }
+        if (scythe is null) { return; }
 
         print("Victim hit by scythe");
 
