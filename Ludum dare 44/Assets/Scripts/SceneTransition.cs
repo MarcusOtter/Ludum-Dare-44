@@ -14,6 +14,10 @@ public class SceneTransition : MonoBehaviour
     [Header("Animation durations")]
     [SerializeField] private float _enableLoadingScreenDuration = 1f;
     [SerializeField] private float _disableLoadingScreenDelay = 1f;
+    [SerializeField] private float _soulConsumedDelay = 3f;
+
+    [Header("Other settings")]
+    [SerializeField] private int _officeSceneIndex = 1;
 
     private Animator _animator;
 
@@ -26,8 +30,17 @@ public class SceneTransition : MonoBehaviour
     {
         SingletonSetup();
 
+        _animator = GetComponent<Animator>();
         _enableLoadingScreenHash = Animator.StringToHash(_enableLoadingScreenName);
         _disableLoadingScreenHash = Animator.StringToHash(_disableLoadingScreenName);
+    }
+
+    private void OnEnable()
+    {
+        Victim.OnConsumed += (object sender, System.EventArgs args) => 
+        {
+            StartCoroutine(ChangeScenesTo(_officeSceneIndex, _soulConsumedDelay));
+        };
     }
 
     internal void LoadScene(int sceneIndex)
@@ -48,13 +61,26 @@ public class SceneTransition : MonoBehaviour
         _sceneTransitionCoroutine = StartCoroutine(ChangeScenesTo(SceneManager.GetActiveScene().buildIndex));
     }
 
-    private IEnumerator ChangeScenesTo(int sceneIndex)
+    private IEnumerator ChangeScenesTo(int sceneIndex, float delay = 0f)
     {
+        if (delay != 0)
+        {
+            yield return new WaitForSeconds(delay);
+        }
+
         _animator.SetTrigger(_enableLoadingScreenHash);
         yield return new WaitForSeconds(_enableLoadingScreenDuration);
         SceneManager.LoadScene(sceneIndex);
         yield return new WaitForSeconds(_disableLoadingScreenDelay);
         _animator.SetTrigger(_disableLoadingScreenHash);
+    }
+
+    private void OnDisable()
+    {
+        Victim.OnConsumed -= (object sender, System.EventArgs args) =>
+        {
+            StartCoroutine(ChangeScenesTo(_officeSceneIndex, _soulConsumedDelay));
+        };
     }
 
     private void SingletonSetup()

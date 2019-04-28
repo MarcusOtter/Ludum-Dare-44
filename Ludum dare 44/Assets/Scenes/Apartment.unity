@@ -1819,26 +1819,6 @@ PrefabInstance:
       propertyPath: OnDeathUnityEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1375705349}
-    - target: {fileID: 7737917936071789087, guid: 59cb0206edb8ff541b3032aa107d18f7,
-        type: 3}
-      propertyPath: m_Offset.y
-      value: -1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7737917937723476384, guid: 59cb0206edb8ff541b3032aa107d18f7,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6313106294634660115, guid: 59cb0206edb8ff541b3032aa107d18f7,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6313106294634660115, guid: 59cb0206edb8ff541b3032aa107d18f7,
-        type: 3}
-      propertyPath: m_Offset.y
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 59cb0206edb8ff541b3032aa107d18f7, type: 3}
 --- !u!1001 &9116272700103617747

@@ -324,8 +324,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _enableLoadingScreenName: Enable
   _disableLoadingScreenName: Disable
-  _enableLoadingScreenDuration: 1
+  _enableLoadingScreenDuration: 3
   _disableLoadingScreenDelay: 1
+  _soulConsumedDelay: 3
+  _officeSceneIndex: 1
 --- !u!223 &4873666932329682840
 Canvas:
   m_ObjectHideFlags: 0

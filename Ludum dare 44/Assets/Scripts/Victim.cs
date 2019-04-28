@@ -21,7 +21,7 @@ public class Victim : MonoBehaviour
     [SerializeField] private float _soulRotationSpeed;
     [SerializeField] private float _minTimeUntilNewRotation = 0.1f;
     [SerializeField] private float _maxTimeUntilNewRotation = 0.5f;
-    [SerializeField] private float _startRotation = 0f;
+    [SerializeField] private float _startRotationZ = 0f;
 
     private Rigidbody2D _rigidbody;
     private VictimGraphics _victimGraphics;
@@ -57,7 +57,7 @@ public class Victim : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collider)
     {
-        if (collider.CompareTag("SoulBoundary"))
+        if (collider.CompareTag("SoulBoundary") && _isEscaping)
         {
             if (_updateTargetRotationCoroutine != null)
             {
@@ -66,7 +66,7 @@ public class Victim : MonoBehaviour
             }
 
             _targetRotation = Quaternion.AngleAxis(180f, Vector3.forward) * transform.rotation;
-            print("Rotated 180 degrees");
+            //print("Rotated 180 degrees");
         }
 
         var scythe = collider.GetComponent<Scythe>();
@@ -95,7 +95,7 @@ public class Victim : MonoBehaviour
         _updateTargetRotationCoroutine = StartCoroutine(UpdateTargetRotation());
 
         yield return new WaitForSeconds(delay);
-        _rigidbody.SetRotation(Quaternion.Euler(0f, 0f, _startRotation));
+        _rigidbody.SetRotation(Quaternion.Euler(0f, 0f, _startRotationZ));
         OnSoulReleased?.Invoke(this, EventArgs.Empty);
 
         _isEscaping = true;
