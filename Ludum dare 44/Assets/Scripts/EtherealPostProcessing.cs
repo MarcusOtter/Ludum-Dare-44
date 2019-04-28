@@ -91,6 +91,9 @@ public class EtherealPostProcessing : MonoBehaviour
 
     private void OnDestroy()
     {
-        RuntimeUtilities.DestroyVolume(_postProcessVolume, true, true);
+        if (_postProcessVolume != null)
+        {
+            RuntimeUtilities.DestroyVolume(_postProcessVolume, true, true);
+        }
     }
 }

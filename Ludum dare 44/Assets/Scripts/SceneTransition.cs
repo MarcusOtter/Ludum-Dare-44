@@ -13,7 +13,7 @@ public class SceneTransition : MonoBehaviour
 
     [Header("Animation durations")]
     [SerializeField] private float _enableLoadingScreenDuration = 1f;
-    //[SerializeField] private float _disableLoadingScreenDuration = 1f;
+    [SerializeField] private float _disableLoadingScreenDelay = 1f;
 
     private Animator _animator;
 
@@ -53,8 +53,8 @@ public class SceneTransition : MonoBehaviour
         _animator.SetTrigger(_enableLoadingScreenHash);
         yield return new WaitForSeconds(_enableLoadingScreenDuration);
         SceneManager.LoadScene(sceneIndex);
+        yield return new WaitForSeconds(_disableLoadingScreenDelay);
         _animator.SetTrigger(_disableLoadingScreenHash);
-        //yield return new WaitForSeconds(_disableLoadingScreenDuration);
     }
 
     private void SingletonSetup()
