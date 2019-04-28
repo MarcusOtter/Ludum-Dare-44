@@ -1767,7 +1767,7 @@ PrefabInstance:
     - target: {fileID: 7737917936071789073, guid: 59cb0206edb8ff541b3032aa107d18f7,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7737917936071789073, guid: 59cb0206edb8ff541b3032aa107d18f7,
         type: 3}
@@ -1819,15 +1819,25 @@ PrefabInstance:
       propertyPath: OnDeathUnityEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1375705349}
-    - target: {fileID: 7737917936071789086, guid: 59cb0206edb8ff541b3032aa107d18f7,
+    - target: {fileID: 7737917936071789087, guid: 59cb0206edb8ff541b3032aa107d18f7,
         type: 3}
-      propertyPath: _soulMovementSpeed
-      value: 12
+      propertyPath: m_Offset.y
+      value: -1
       objectReference: {fileID: 0}
-    - target: {fileID: 7737917936071789086, guid: 59cb0206edb8ff541b3032aa107d18f7,
+    - target: {fileID: 7737917937723476384, guid: 59cb0206edb8ff541b3032aa107d18f7,
         type: 3}
-      propertyPath: _soulRotationSpeed
-      value: 10
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6313106294634660115, guid: 59cb0206edb8ff541b3032aa107d18f7,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6313106294634660115, guid: 59cb0206edb8ff541b3032aa107d18f7,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 59cb0206edb8ff541b3032aa107d18f7, type: 3}

@@ -66,6 +66,7 @@ public class Victim : MonoBehaviour
             }
 
             _targetRotation = Quaternion.AngleAxis(180f, Vector3.forward) * transform.rotation;
+            print("Rotated 180 degrees");
         }
 
         var scythe = collider.GetComponent<Scythe>();
