@@ -42,8 +42,9 @@ public class ReaperGraphics : MonoBehaviour
 
         if (_reaperTransformation.CurrentForm == ReaperForm.Spectral)
         {
-            _bodySpriteRenderer.flipY = (transform.eulerAngles.z > 90 && transform.eulerAngles.z < 270);
-            _headSpriteRenderer.flipY = (transform.eulerAngles.z > 90 && transform.eulerAngles.z < 270);
+            var shouldFlip = (transform.eulerAngles.z > 90 && transform.eulerAngles.z < 270);
+            _bodySpriteRenderer.flipY = shouldFlip;
+            _headSpriteRenderer.flipY = shouldFlip;
             return;
         }
 

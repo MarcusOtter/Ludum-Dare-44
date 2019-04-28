@@ -17,6 +17,7 @@ public class Victim : MonoBehaviour
     [SerializeField] private float _soulRotationSpeed;
     [SerializeField] private float _minTimeUntilNewRotation = 0.1f;
     [SerializeField] private float _maxTimeUntilNewRotation = 0.5f;
+    [SerializeField] private float _startRotation = 0f;
 
     private Rigidbody2D _rigidbody;
     private VictimGraphics _victimGraphics;
@@ -83,7 +84,7 @@ public class Victim : MonoBehaviour
         _updateTargetRotationCoroutine = StartCoroutine(UpdateTargetRotation());
 
         yield return new WaitForSeconds(delay);
-        _rigidbody.SetRotation(Quaternion.Euler(0f, 0f, 30f));
+        _rigidbody.SetRotation(Quaternion.Euler(0f, 0f, _startRotation));
         OnSoulReleased?.Invoke(this, EventArgs.Empty);
 
         _isEscaping = true;
@@ -97,7 +98,7 @@ public class Victim : MonoBehaviour
         while (_isEscaping)
         {
             var timeUntilNewRotation = Random.Range(_minTimeUntilNewRotation, _maxTimeUntilNewRotation);
-            var randomOffsetDegrees = Random.Range(-45, 90);
+            var randomOffsetDegrees = Random.Range(-45f, 45f);
 
             _targetRotation = Quaternion.AngleAxis(randomOffsetDegrees, Vector3.forward) * transform.rotation;
 

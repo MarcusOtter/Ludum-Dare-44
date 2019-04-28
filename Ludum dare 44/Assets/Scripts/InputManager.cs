@@ -26,8 +26,7 @@ public class InputManager : MonoBehaviour
 
     private void Update()
     {
-        // _mainCamera.ScreenToWorldPoint did not work for some reason
-        MouseWorldPosition = _mainCamera.ScreenPointToRay(Input.mousePosition).direction * 10;
+        MouseWorldPosition = _mainCamera.ScreenToWorldPoint(Input.mousePosition);
 
         HorizontalAxisValue = Input.GetAxisRaw(_horizontalAxisName);
         VerticalAxisValue = Input.GetAxisRaw(_verticalAxisName);

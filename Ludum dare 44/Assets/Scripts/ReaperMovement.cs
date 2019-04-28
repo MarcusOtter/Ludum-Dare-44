@@ -28,11 +28,11 @@ public class ReaperMovement : MonoBehaviour
         switch (_reaperTransformation.CurrentForm)
         {
             case ReaperForm.Physical:
-                _rigidbody.velocity = new Vector2(_inputManager.HorizontalAxisValue, 0) * _normalMovementSpeed;
+                _rigidbody.velocity = new Vector2(_inputManager.HorizontalAxisValue, 0).normalized * _normalMovementSpeed;
                 break;
 
             case ReaperForm.Spectral:
-                _rigidbody.velocity = new Vector2(_inputManager.HorizontalAxisValue, _inputManager.VerticalAxisValue)* _spectralMovementSpeed;
+                _rigidbody.velocity = new Vector2(_inputManager.HorizontalAxisValue, _inputManager.VerticalAxisValue).normalized * _spectralMovementSpeed;
                 Vector2 lookDirection = (_inputManager.MouseWorldPosition - transform.position).normalized;
                 transform.right = lookDirection;
                 break;
