@@ -327,7 +327,7 @@ MonoBehaviour:
   _enableLoadingScreenDuration: 3
   _disableLoadingScreenDelay: 1
   _soulConsumedDelay: 3
-  _officeSceneIndex: 1
+  _officeSceneIndex: 0
 --- !u!223 &4873666932329682840
 Canvas:
   m_ObjectHideFlags: 0

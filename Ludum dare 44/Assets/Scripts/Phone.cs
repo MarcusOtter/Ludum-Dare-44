@@ -34,7 +34,7 @@ public class Phone : MonoBehaviour
     // Used by phone button
     public void GoToApartmentScene()
     {
-        SceneTransition.Instance.LoadScene(2);
+        SceneTransition.Instance.LoadScene(1);
         Close();
     }
 
@@ -50,7 +50,7 @@ public class Phone : MonoBehaviour
     private void Toggle(object sender, System.EventArgs args)
     {
         // Perfect 72h game jam hack
-        if (SceneTransition.Instance.CurrentSceneIndex != 1) 
+        if (SceneTransition.Instance.CurrentSceneIndex != 0) 
         {
             Close();
             return; 

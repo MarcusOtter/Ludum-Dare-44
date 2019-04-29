@@ -19,7 +19,7 @@ public class SceneTransition : MonoBehaviour
     [SerializeField] private float _soulConsumedDelay = 3f;
 
     [Header("Other settings")]
-    [SerializeField] private int _officeSceneIndex = 1;
+    [SerializeField] private int _officeSceneIndex = 0;
 
     private Animator _animator;
 
@@ -78,6 +78,7 @@ public class SceneTransition : MonoBehaviour
         SceneManager.LoadScene(sceneIndex);
         yield return new WaitForSeconds(_disableLoadingScreenDelay);
         _animator.SetTrigger(_disableLoadingScreenHash);
+        _sceneTransitionCoroutine = null;
     }
 
     private void OnDisable()

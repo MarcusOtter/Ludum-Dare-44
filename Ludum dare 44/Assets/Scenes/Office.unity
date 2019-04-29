@@ -120,18 +120,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!114 &188023547 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6642729844238604270, guid: 1dc4d38bfb6b94b31b688b965cabd65d,
-    type: 3}
-  m_PrefabInstance: {fileID: 3518706024517752823}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: deac57a5a2a414566acca71123e56248, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &337200008
 GameObject:
   m_ObjectHideFlags: 0
@@ -1285,21 +1273,6 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3518706024701580557, guid: 1dc4d38bfb6b94b31b688b965cabd65d,
-        type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: b228ac9d9505e4e2fb31b735135944d4, type: 2}
-    - target: {fileID: 3518706025030220979, guid: 1dc4d38bfb6b94b31b688b965cabd65d,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -400
-      objectReference: {fileID: 0}
-    - target: {fileID: 3518706025030220979, guid: 1dc4d38bfb6b94b31b688b965cabd65d,
-        type: 3}
-      propertyPath: m_SizeDelta.y
-      value: -100
-      objectReference: {fileID: 0}
     - target: {fileID: 3518706026343991159, guid: 1dc4d38bfb6b94b31b688b965cabd65d,
         type: 3}
       propertyPath: m_AnchorMin.y
@@ -1540,35 +1513,15 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3518706026444553082, guid: 1dc4d38bfb6b94b31b688b965cabd65d,
+    - target: {fileID: 3518706024664275232, guid: 1dc4d38bfb6b94b31b688b965cabd65d,
         type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 3518706026444553082, guid: 1dc4d38bfb6b94b31b688b965cabd65d,
+    - target: {fileID: 3518706024480819785, guid: 1dc4d38bfb6b94b31b688b965cabd65d,
         type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3518706026444553082, guid: 1dc4d38bfb6b94b31b688b965cabd65d,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3518706026444553082, guid: 1dc4d38bfb6b94b31b688b965cabd65d,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 188023547}
-    - target: {fileID: 3518706026444553082, guid: 1dc4d38bfb6b94b31b688b965cabd65d,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: GoToApartmentScene
-      objectReference: {fileID: 0}
-    - target: {fileID: 3518706026444553082, guid: 1dc4d38bfb6b94b31b688b965cabd65d,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1dc4d38bfb6b94b31b688b965cabd65d, type: 3}
