@@ -10,10 +10,12 @@ public class ReaperTransformation : MonoBehaviour
 
     private void OnEnable()
     {
-        Victim.OnDeath += (object sender, System.EventArgs args) =>
-        {
-            StartCoroutine(Transform());
-        };
+        Victim.OnDeath += StartTransform;
+    }
+
+    private void StartTransform(object sender, System.EventArgs args)
+    {
+        StartCoroutine(Transform());
     }
 
     private IEnumerator Transform()
@@ -32,9 +34,6 @@ public class ReaperTransformation : MonoBehaviour
 
     private void OnDisable()
     {
-        Victim.OnDeath -= (object sender, System.EventArgs args) =>
-        {
-            StartCoroutine(Transform());
-        };
+        Victim.OnDeath -= StartTransform;
     }
 }

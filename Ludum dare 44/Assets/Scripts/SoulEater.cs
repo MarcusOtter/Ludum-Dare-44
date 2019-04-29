@@ -33,11 +33,13 @@ public class SoulEater : MonoBehaviour
     {
         InputManager.Instance.OnActionButtonDown += TryToEatSoul;
 
-        Victim.OnConsumed += (object sender, System.EventArgs args) =>
-        {
-            _animator.SetBool(_soulInRangeHash, false);
-            this.enabled = false;
-        };
+        Victim.OnConsumed += CloseMouthAndStop;
+    }
+
+    private void CloseMouthAndStop(object sender, System.EventArgs args)
+    {
+        _animator.SetBool(_soulInRangeHash, false);
+        this.enabled = false;
     }
 
     private void TryToEatSoul(object sender, System.EventArgs args)
@@ -75,9 +77,6 @@ public class SoulEater : MonoBehaviour
     {
         InputManager.Instance.OnActionButtonDown -= TryToEatSoul;
 
-        Victim.OnConsumed -= (object sender, System.EventArgs args) =>
-        {
-            this.enabled = false;
-        };
+        Victim.OnConsumed -= CloseMouthAndStop;
     }
 }

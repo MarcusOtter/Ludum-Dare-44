@@ -32,10 +32,12 @@ public class ReaperGraphics : MonoBehaviour
 
     private void OnEnable()
     {
-        Victim.OnDeath += (object sender, System.EventArgs args) => 
-        {
-            _animator.SetTrigger(_transformToSpectralHash);
-        };
+        Victim.OnDeath += TransformToSpectral;
+    }
+
+    private void TransformToSpectral(object sender, System.EventArgs args)
+    {
+        _animator.SetTrigger(_transformToSpectralHash);
     }
 
     private void Update()
@@ -64,9 +66,6 @@ public class ReaperGraphics : MonoBehaviour
 
     private void OnDisable()
     {
-        Victim.OnDeath -= (object sender, System.EventArgs args) =>
-        {
-            _animator.SetTrigger(_transformToSpectralHash);
-        };
+        Victim.OnDeath -= TransformToSpectral;
     }
 }

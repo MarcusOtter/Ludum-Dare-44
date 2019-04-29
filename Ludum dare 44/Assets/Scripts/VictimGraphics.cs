@@ -20,22 +20,17 @@ public class VictimGraphics : MonoBehaviour
 
     private void OnEnable()
     {
-        Victim.OnDeath += (object sender, System.EventArgs args) => 
-        {
-            TransformToSoul();
-        };
+        Victim.OnDeath += TransformToSoul;
     }
 
-    private void TransformToSoul()
+    private void TransformToSoul(object sender, System.EventArgs args)
     {
         _animator.SetTrigger(_soulTransformationHash);
     }
 
     private void OnDisable()
     {
-        Victim.OnDeath -= (object sender, System.EventArgs args) =>
-        {
-            TransformToSoul();
-        };
+        Victim.OnDeath -= TransformToSoul;
+
     }
 }

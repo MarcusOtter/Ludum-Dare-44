@@ -18,11 +18,7 @@ public class ReaperMovement : MonoBehaviour
 
     private void OnEnable()
     {
-        Victim.OnConsumed += (object sender, System.EventArgs args) =>
-        {
-            _rigidbody.velocity = Vector2.zero;
-            this.enabled = false;
-        };
+        Victim.OnConsumed += DisableRigidbody;
     }
 
     private void Start()
@@ -52,8 +48,14 @@ public class ReaperMovement : MonoBehaviour
         }
     }
 
+    private void DisableRigidbody(object sender, System.EventArgs args)
+    {
+        _rigidbody.velocity = Vector2.zero;
+        this.enabled = false;
+    }
+
     private void OnDisable()
     {
-        Victim.OnConsumed -= (object sender, System.EventArgs args) => this.enabled = false;
+        Victim.OnConsumed -= DisableRigidbody;
     }
 }

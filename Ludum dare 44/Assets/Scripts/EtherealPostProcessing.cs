@@ -57,7 +57,12 @@ public class EtherealPostProcessing : MonoBehaviour
 
     private void OnEnable()
     {
-        Victim.OnDeath += (object sender, System.EventArgs args) => StartCoroutine(EnableAndFadeProcessing());
+        Victim.OnDeath += OnDeathBeahaviour;
+    }
+
+    private void OnDeathBeahaviour(object sender, System.EventArgs args)
+    {
+        StartCoroutine(EnableAndFadeProcessing());
     }
 
     private IEnumerator EnableAndFadeProcessing()
@@ -86,7 +91,7 @@ public class EtherealPostProcessing : MonoBehaviour
 
     private void OnDisable()
     {
-        Victim.OnDeath -= (object sender, System.EventArgs args) => StartCoroutine(EnableAndFadeProcessing());
+        Victim.OnDeath -= OnDeathBeahaviour;
     }
 
     private void OnDestroy()

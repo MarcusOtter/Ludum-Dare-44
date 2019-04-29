@@ -39,10 +39,7 @@ public class SceneTransition : MonoBehaviour
 
     private void OnEnable()
     {
-        Victim.OnConsumed += (object sender, System.EventArgs args) => 
-        {
-            StartCoroutine(ChangeScenesTo(_officeSceneIndex, _soulConsumedDelay));
-        };
+        Victim.OnConsumed += StartChangeSceneCoroutine;
     }
 
     // Used by phone button
@@ -64,6 +61,11 @@ public class SceneTransition : MonoBehaviour
         _sceneTransitionCoroutine = StartCoroutine(ChangeScenesTo(SceneManager.GetActiveScene().buildIndex));
     }
 
+    private void StartChangeSceneCoroutine(object sender, System.EventArgs args)
+    {
+        StartCoroutine(ChangeScenesTo(_officeSceneIndex, _soulConsumedDelay));
+    }
+
     private IEnumerator ChangeScenesTo(int sceneIndex, float delay = 0f)
     {
         if (delay != 0)
@@ -80,10 +82,7 @@ public class SceneTransition : MonoBehaviour
 
     private void OnDisable()
     {
-        Victim.OnConsumed -= (object sender, System.EventArgs args) =>
-        {
-            StartCoroutine(ChangeScenesTo(_officeSceneIndex, _soulConsumedDelay));
-        };
+        Victim.OnConsumed -= StartChangeSceneCoroutine;
     }
 
     private void SingletonSetup()

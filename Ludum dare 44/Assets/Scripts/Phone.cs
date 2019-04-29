@@ -28,10 +28,7 @@ public class Phone : MonoBehaviour
 
     private void OnEnable()
     {
-        InputManager.Instance.OnSpaceDown += (object sender, System.EventArgs args) =>
-        {
-            Toggle();
-        };
+        InputManager.Instance.OnSpaceDown += Toggle;
     }
 
     // Used by phone button
@@ -50,7 +47,7 @@ public class Phone : MonoBehaviour
         }
     }
 
-    private void Toggle()
+    private void Toggle(object sender, System.EventArgs args)
     {
         // Perfect 72h game jam hack
         if (SceneTransition.Instance.CurrentSceneIndex != 1) 
@@ -78,9 +75,6 @@ public class Phone : MonoBehaviour
 
     private void OnDisable()
     {
-        InputManager.Instance.OnSpaceDown -= (object sender, System.EventArgs args) =>
-        {
-            Toggle();
-        };
+        InputManager.Instance.OnSpaceDown -= Toggle;
     }
 }
