@@ -6,6 +6,7 @@ public class InputManager : MonoBehaviour
     internal static InputManager Instance { get; private set; }
 
     internal event EventHandler OnActionButtonDown;
+    internal event EventHandler OnSpaceDown;
 
     internal Vector3 MouseWorldPosition { get; private set; }
     internal float HorizontalAxisValue { get; private set; }
@@ -35,6 +36,11 @@ public class InputManager : MonoBehaviour
         if (Input.GetButtonDown(_actionButtonName))
         {
             OnActionButtonDown?.Invoke(this, EventArgs.Empty);
+        }
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            OnSpaceDown?.Invoke(this, EventArgs.Empty);
         }
     }
 

@@ -7,6 +7,8 @@ public class SceneTransition : MonoBehaviour
 {
     internal static SceneTransition Instance { get; private set; }
     
+    internal int CurrentSceneIndex => SceneManager.GetActiveScene().buildIndex;
+
     [Header("Animator parameters")]
     [SerializeField] private string _enableLoadingScreenName;
     [SerializeField] private string _disableLoadingScreenName;
@@ -43,6 +45,7 @@ public class SceneTransition : MonoBehaviour
         };
     }
 
+    // Used by phone button
     internal void LoadScene(int sceneIndex)
     {
         if (_sceneTransitionCoroutine != null) { return; }
