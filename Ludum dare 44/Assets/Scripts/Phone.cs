@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 [RequireComponent(typeof(Animator))]
 public class Phone : MonoBehaviour
@@ -36,6 +34,20 @@ public class Phone : MonoBehaviour
     {
         SceneTransition.Instance.LoadScene(1);
         Close();
+    }
+
+    public void TryPurchaseItem(GameObject item)
+    {
+        if (InventoryManager.Instance.CanPurchase(item.name))
+        {
+            InventoryManager.Instance.BuyItem(item.name);
+            item.SetActive(false);
+        }
+    }
+
+    public void QuitGame()
+    {
+        Application.Quit();
     }
 
     private void Close()
